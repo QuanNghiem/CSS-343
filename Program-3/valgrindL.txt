@@ -1,0 +1,383 @@
+==1726== Memcheck, a memory error detector
+==1726== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1726== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==1726== Command: ./graphl.cpp
+==1726== 
+--1726-- Valgrind options:
+--1726--    --leak-check=full
+--1726--    -v
+--1726-- Contents of /proc/version:
+--1726--   Linux version 4.15.0-43-generic (buildd@lgw01-amd64-001) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #46-Ubuntu SMP Thu Dec 6 14:45:28 UTC 2018
+--1726-- 
+--1726-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2
+--1726-- Page sizes: currently 4096, max supported 4096
+--1726-- Valgrind library directory: /usr/lib/valgrind
+--1726-- Reading syms from /bin/dash
+--1726--    object doesn't have a symbol table
+--1726-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--1726--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--1726--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--1726--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--1726--   .. CRC is valid
+--1726-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--1726--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--1726--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--1726--    object doesn't have a symbol table
+--1726--    object doesn't have a dynamic symbol table
+--1726-- Scheduler: using generic scheduler lock implementation.
+--1726-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==1726== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1726-by-charl117-on-???
+==1726== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1726-by-charl117-on-???
+==1726== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1726-by-charl117-on-???
+==1726== 
+==1726== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1726== don't want to do, unless you know exactly what you're doing,
+==1726== or are doing some strange experiment):
+==1726==   /usr/lib/valgrind/../../bin/vgdb --pid=1726 ...command...
+==1726== 
+==1726== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1726==   /path/to/gdb ./graphl.cpp
+==1726== and then give GDB the following command
+==1726==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=1726
+==1726== --pid is optional if only one valgrind process is running
+==1726== 
+--1726-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--1726-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--1726-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--1726--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--1726--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--1726--    object doesn't have a symbol table
+--1726-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--1726--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--1726--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--1726--    object doesn't have a symbol table
+==1726== WARNING: new redirection conflicts with existing -- ignoring it
+--1726--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--1726--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--1726-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--1726-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--1726-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--1726--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--1726--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--1726--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--1726--   .. CRC is valid
+--1726-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4edab20 (libc.so.6:strstr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1726-- REDIR: 0x4fca3c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--1726-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--1726-- REDIR: 0x4fca1d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--1726-- REDIR: 0x4fca590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--1726-- REDIR: 0x4fcaab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+--1726-- REDIR: 0x4fcaad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--1726-- REDIR: 0x4fa5d60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--1726-- REDIR: 0x4fc6070 (libc.so.6:__strcspn_sse42) redirected to 0x4c378d0 (strcspn)
+--1726-- REDIR: 0x4fc61b0 (libc.so.6:__strpbrk_sse42) redirected to 0x4c37860 (strpbrk)
+--1726-- REDIR: 0x4fc9fa0 (libc.so.6:__strchr_avx2) redirected to 0x4c32950 (index)
+--1726-- REDIR: 0x4ed4c30 (libc.so.6:realloc) redirected to 0x4c31cb0 (realloc)
+./graphl.cpp: 2: ./graphl.cpp: --1728-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+//-------------graphl.cpp----------------------------------------------------: not found
+==1728== 
+==1728== HEAP SUMMARY:
+==1728==     in use at exit: 3,459 bytes in 74 blocks
+==1728==   total heap usage: 78 allocs, 4 frees, 5,011 bytes allocated
+==1728== 
+==1728== Searching for pointers to 74 not-freed blocks
+==1728== Checked 79,928 bytes
+==1728== 
+==1728== LEAK SUMMARY:
+==1728==    definitely lost: 0 bytes in 0 blocks
+==1728==    indirectly lost: 0 bytes in 0 blocks
+==1728==      possibly lost: 0 bytes in 0 blocks
+==1728==    still reachable: 3,459 bytes in 74 blocks
+==1728==         suppressed: 0 bytes in 0 blocks
+==1728== Reachable blocks (those to which a pointer was found) are not shown.
+==1728== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1728== 
+==1728== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1728== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1726-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+./graphl.cpp: 3: ./graphl.cpp: //Quan: not found
+==1729== 
+==1729== HEAP SUMMARY:
+==1729==     in use at exit: 3,459 bytes in 74 blocks
+==1729==   total heap usage: 79 allocs, 5 frees, 5,027 bytes allocated
+==1729== 
+==1729== Searching for pointers to 74 not-freed blocks
+==1729== Checked 79,928 bytes
+==1729== 
+==1729== LEAK SUMMARY:
+==1729==    definitely lost: 0 bytes in 0 blocks
+==1729==    indirectly lost: 0 bytes in 0 blocks
+==1729==      possibly lost: 0 bytes in 0 blocks
+==1729==    still reachable: 3,459 bytes in 74 blocks
+==1729==         suppressed: 0 bytes in 0 blocks
+==1729== Reachable blocks (those to which a pointer was found) are not shown.
+==1729== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1729== 
+==1729== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1729== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 4: ./graphl.cpp: //Created: not found
+==1730== 
+==1730== HEAP SUMMARY:
+==1730==     in use at exit: 3,459 bytes in 74 blocks
+==1730==   total heap usage: 80 allocs, 6 frees, 5,043 bytes allocated
+==1730== 
+==1730== Searching for pointers to 74 not-freed blocks
+==1730== Checked 79,928 bytes
+==1730== 
+==1730== LEAK SUMMARY:
+==1730==    definitely lost: 0 bytes in 0 blocks
+==1730==    indirectly lost: 0 bytes in 0 blocks
+==1730==      possibly lost: 0 bytes in 0 blocks
+==1730==    still reachable: 3,459 bytes in 74 blocks
+==1730==         suppressed: 0 bytes in 0 blocks
+==1730== Reachable blocks (those to which a pointer was found) are not shown.
+==1730== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1730== 
+==1730== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1730== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 5: ./graphl.cpp: //Last: not found
+==1731== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1731-by-charl117-on-???
+==1731== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1731-by-charl117-on-???
+==1731== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1731-by-charl117-on-???
+==1731== 
+==1731== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1731== don't want to do, unless you know exactly what you're doing,
+==1731== or are doing some strange experiment):
+==1731==   /usr/lib/valgrind/../../bin/vgdb --pid=1731 ...command...
+==1731== 
+==1731== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1731==   /path/to/gdb ./graphl.cpp
+==1731== and then give GDB the following command
+==1731==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=1731
+==1731== --pid is optional if only one valgrind process is running
+==1731== 
+==1731== 
+==1731== HEAP SUMMARY:
+==1731==     in use at exit: 3,459 bytes in 74 blocks
+==1731==   total heap usage: 81 allocs, 7 frees, 5,059 bytes allocated
+==1731== 
+==1731== Searching for pointers to 74 not-freed blocks
+==1731== Checked 79,928 bytes
+==1731== 
+==1731== LEAK SUMMARY:
+==1731==    definitely lost: 0 bytes in 0 blocks
+==1731==    indirectly lost: 0 bytes in 0 blocks
+==1731==      possibly lost: 0 bytes in 0 blocks
+==1731==    still reachable: 3,459 bytes in 74 blocks
+==1731==         suppressed: 0 bytes in 0 blocks
+==1731== Reachable blocks (those to which a pointer was found) are not shown.
+==1731== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1731== 
+==1731== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1731== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 6: ./graphl.cpp: //-------------------------------------------------------------------------: not found
+==1732== 
+==1732== HEAP SUMMARY:
+==1732==     in use at exit: 3,459 bytes in 74 blocks
+==1732==   total heap usage: 82 allocs, 8 frees, 5,075 bytes allocated
+==1732== 
+==1732== Searching for pointers to 74 not-freed blocks
+==1732== Checked 79,928 bytes
+==1732== 
+==1732== LEAK SUMMARY:
+==1732==    definitely lost: 0 bytes in 0 blocks
+==1732==    indirectly lost: 0 bytes in 0 blocks
+==1732==      possibly lost: 0 bytes in 0 blocks
+==1732==    still reachable: 3,459 bytes in 74 blocks
+==1732==         suppressed: 0 bytes in 0 blocks
+==1732== Reachable blocks (those to which a pointer was found) are not shown.
+==1732== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1732== 
+==1732== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1732== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 7: ./graphl.cpp: //Purpose:: not found
+==1733== 
+==1733== HEAP SUMMARY:
+==1733==     in use at exit: 4,051 bytes in 75 blocks
+==1733==   total heap usage: 84 allocs, 9 frees, 5,787 bytes allocated
+==1733== 
+==1733== Searching for pointers to 75 not-freed blocks
+==1733== Checked 80,872 bytes
+==1733== 
+==1733== LEAK SUMMARY:
+==1733==    definitely lost: 0 bytes in 0 blocks
+==1733==    indirectly lost: 0 bytes in 0 blocks
+==1733==      possibly lost: 0 bytes in 0 blocks
+==1733==    still reachable: 4,051 bytes in 75 blocks
+==1733==         suppressed: 0 bytes in 0 blocks
+==1733== Reachable blocks (those to which a pointer was found) are not shown.
+==1733== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1733== 
+==1733== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1733== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 8: ./graphl.cpp: //-------------------------------------------------------------------------: not found
+==1734== 
+==1734== HEAP SUMMARY:
+==1734==     in use at exit: 3,459 bytes in 74 blocks
+==1734==   total heap usage: 85 allocs, 11 frees, 5,619 bytes allocated
+==1734== 
+==1734== Searching for pointers to 74 not-freed blocks
+==1734== Checked 79,928 bytes
+==1734== 
+==1734== LEAK SUMMARY:
+==1734==    definitely lost: 0 bytes in 0 blocks
+==1734==    indirectly lost: 0 bytes in 0 blocks
+==1734==      possibly lost: 0 bytes in 0 blocks
+==1734==    still reachable: 3,459 bytes in 74 blocks
+==1734==         suppressed: 0 bytes in 0 blocks
+==1734== Reachable blocks (those to which a pointer was found) are not shown.
+==1734== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1734== 
+==1734== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1734== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 9: ./graphl.cpp: //Notes:: not found
+==1738== 
+==1738== HEAP SUMMARY:
+==1738==     in use at exit: 3,683 bytes in 75 blocks
+==1738==   total heap usage: 86 allocs, 11 frees, 5,347 bytes allocated
+==1738== 
+==1738== Searching for pointers to 75 not-freed blocks
+==1738== Checked 80,904 bytes
+==1738== 
+==1738== LEAK SUMMARY:
+==1738==    definitely lost: 0 bytes in 0 blocks
+==1738==    indirectly lost: 0 bytes in 0 blocks
+==1738==      possibly lost: 0 bytes in 0 blocks
+==1738==    still reachable: 3,683 bytes in 75 blocks
+==1738==         suppressed: 0 bytes in 0 blocks
+==1738== Reachable blocks (those to which a pointer was found) are not shown.
+==1738== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1738== 
+==1738== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1738== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 10: ./graphl.cpp: //-------------------------------------------------------------------------: not found
+==1740== 
+==1740== HEAP SUMMARY:
+==1740==     in use at exit: 3,459 bytes in 74 blocks
+==1740==   total heap usage: 88 allocs, 14 frees, 6,163 bytes allocated
+==1740== 
+==1740== Searching for pointers to 74 not-freed blocks
+==1740== Checked 79,928 bytes
+==1740== 
+==1740== LEAK SUMMARY:
+==1740==    definitely lost: 0 bytes in 0 blocks
+==1740==    indirectly lost: 0 bytes in 0 blocks
+==1740==      possibly lost: 0 bytes in 0 blocks
+==1740==    still reachable: 3,459 bytes in 74 blocks
+==1740==         suppressed: 0 bytes in 0 blocks
+==1740== Reachable blocks (those to which a pointer was found) are not shown.
+==1740== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1740== 
+==1740== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1740== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 12: ./graphl.cpp: //-----------------------------------------------------------------------------: not found
+==1741== 
+==1741== HEAP SUMMARY:
+==1741==     in use at exit: 3,459 bytes in 74 blocks
+==1741==   total heap usage: 89 allocs, 15 frees, 6,179 bytes allocated
+==1741== 
+==1741== Searching for pointers to 74 not-freed blocks
+==1741== Checked 79,928 bytes
+==1741== 
+==1741== LEAK SUMMARY:
+==1741==    definitely lost: 0 bytes in 0 blocks
+==1741==    indirectly lost: 0 bytes in 0 blocks
+==1741==      possibly lost: 0 bytes in 0 blocks
+==1741==    still reachable: 3,459 bytes in 74 blocks
+==1741==         suppressed: 0 bytes in 0 blocks
+==1741== Reachable blocks (those to which a pointer was found) are not shown.
+==1741== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1741== 
+==1741== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1741== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1742-- REDIR: 0x4fbbc80 (libc.so.6:__stpcpy_ssse3) redirected to 0x4c35f60 (stpcpy)
+./graphl.cpp: 13: ./graphl.cpp: //: Permission denied
+==1742== 
+==1742== HEAP SUMMARY:
+==1742==     in use at exit: 3,459 bytes in 74 blocks
+==1742==   total heap usage: 90 allocs, 16 frees, 6,195 bytes allocated
+==1742== 
+==1742== Searching for pointers to 74 not-freed blocks
+==1742== Checked 79,928 bytes
+==1742== 
+==1742== LEAK SUMMARY:
+==1742==    definitely lost: 0 bytes in 0 blocks
+==1742==    indirectly lost: 0 bytes in 0 blocks
+==1742==      possibly lost: 0 bytes in 0 blocks
+==1742==    still reachable: 3,459 bytes in 74 blocks
+==1742==         suppressed: 0 bytes in 0 blocks
+==1742== Reachable blocks (those to which a pointer was found) are not shown.
+==1742== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1742== 
+==1742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1743-- REDIR: 0x4fbbc80 (libc.so.6:__stpcpy_ssse3) redirected to 0x4c35f60 (stpcpy)
+./graphl.cpp: 14: ./graphl.cpp: //: Permission denied
+==1743== 
+==1743== HEAP SUMMARY:
+==1743==     in use at exit: 3,971 bytes in 75 blocks
+==1743==   total heap usage: 92 allocs, 17 frees, 6,723 bytes allocated
+==1743== 
+==1743== Searching for pointers to 75 not-freed blocks
+==1743== Checked 80,776 bytes
+==1743== 
+==1743== LEAK SUMMARY:
+==1743==    definitely lost: 0 bytes in 0 blocks
+==1743==    indirectly lost: 0 bytes in 0 blocks
+==1743==      possibly lost: 0 bytes in 0 blocks
+==1743==    still reachable: 3,971 bytes in 75 blocks
+==1743==         suppressed: 0 bytes in 0 blocks
+==1743== Reachable blocks (those to which a pointer was found) are not shown.
+==1743== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1743== 
+==1743== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1743== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./graphl.cpp: 15: ./graphl.cpp: Syntax error: Bad function name
+==1726== 
+==1726== HEAP SUMMARY:
+==1726==     in use at exit: 2,443 bytes in 73 blocks
+==1726==   total heap usage: 90 allocs, 17 frees, 5,195 bytes allocated
+==1726== 
+==1726== Searching for pointers to 73 not-freed blocks
+==1726== Checked 79,360 bytes
+==1726== 
+==1726== LEAK SUMMARY:
+==1726==    definitely lost: 0 bytes in 0 blocks
+==1726==    indirectly lost: 0 bytes in 0 blocks
+==1726==      possibly lost: 0 bytes in 0 blocks
+==1726==    still reachable: 2,443 bytes in 73 blocks
+==1726==         suppressed: 0 bytes in 0 blocks
+==1726== Reachable blocks (those to which a pointer was found) are not shown.
+==1726== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1726== 
+==1726== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1726== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

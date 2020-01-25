@@ -1,0 +1,90 @@
+==1710== Memcheck, a memory error detector
+==1710== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1710== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==1710== Command: ./poly.cpp
+==1710== 
+./poly.cpp: 1: ./poly.cpp: /bin: Permission denied
+==1713== 
+==1713== HEAP SUMMARY:
+==1713==     in use at exit: 4,561 bytes in 76 blocks
+==1713==   total heap usage: 82 allocs, 6 frees, 41,081 bytes allocated
+==1713== 
+==1713== LEAK SUMMARY:
+==1713==    definitely lost: 0 bytes in 0 blocks
+==1713==    indirectly lost: 0 bytes in 0 blocks
+==1713==      possibly lost: 0 bytes in 0 blocks
+==1713==    still reachable: 4,561 bytes in 76 blocks
+==1713==         suppressed: 0 bytes in 0 blocks
+==1713== Rerun with --leak-check=full to see details of leaked memory
+==1713== 
+==1713== For counts of detected and suppressed errors, rerun with: -v
+==1713== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./poly.cpp: 2: ./poly.cpp: Linux Compilation: not found
+./poly.cpp: 3: ./poly.cpp: Linux Compilation: not found
+./poly.cpp: 4: ./poly.cpp: Linux Compilation: not found
+./poly.cpp: 5: ./poly.cpp: Linux Compilation: not found
+./poly.cpp: 6: ./poly.cpp: */: not found
+==1714== 
+==1714== HEAP SUMMARY:
+==1714==     in use at exit: 3,217 bytes in 74 blocks
+==1714==   total heap usage: 106 allocs, 32 frees, 219,665 bytes allocated
+==1714== 
+==1714== LEAK SUMMARY:
+==1714==    definitely lost: 0 bytes in 0 blocks
+==1714==    indirectly lost: 0 bytes in 0 blocks
+==1714==      possibly lost: 0 bytes in 0 blocks
+==1714==    still reachable: 3,217 bytes in 74 blocks
+==1714==         suppressed: 0 bytes in 0 blocks
+==1714== Rerun with --leak-check=full to see details of leaked memory
+==1714== 
+==1714== For counts of detected and suppressed errors, rerun with: -v
+==1714== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./poly.cpp: 9: ./poly.cpp: using: not found
+./poly.cpp: 11: ./poly.cpp: //: Permission denied
+==1718== 
+==1718== HEAP SUMMARY:
+==1718==     in use at exit: 3,969 bytes in 75 blocks
+==1718==   total heap usage: 112 allocs, 37 frees, 221,985 bytes allocated
+==1718== 
+==1718== LEAK SUMMARY:
+==1718==    definitely lost: 0 bytes in 0 blocks
+==1718==    indirectly lost: 0 bytes in 0 blocks
+==1718==      possibly lost: 0 bytes in 0 blocks
+==1718==    still reachable: 3,969 bytes in 75 blocks
+==1718==         suppressed: 0 bytes in 0 blocks
+==1718== Rerun with --leak-check=full to see details of leaked memory
+==1718== 
+==1718== For counts of detected and suppressed errors, rerun with: -v
+==1718== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./poly.cpp: 12: ./poly.cpp: //: Permission denied
+==1722== 
+==1722== HEAP SUMMARY:
+==1722==     in use at exit: 3,825 bytes in 75 blocks
+==1722==   total heap usage: 113 allocs, 38 frees, 221,857 bytes allocated
+==1722== 
+==1722== LEAK SUMMARY:
+==1722==    definitely lost: 0 bytes in 0 blocks
+==1722==    indirectly lost: 0 bytes in 0 blocks
+==1722==      possibly lost: 0 bytes in 0 blocks
+==1722==    still reachable: 3,825 bytes in 75 blocks
+==1722==         suppressed: 0 bytes in 0 blocks
+==1722== Rerun with --leak-check=full to see details of leaked memory
+==1722== 
+==1722== For counts of detected and suppressed errors, rerun with: -v
+==1722== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./poly.cpp: 13: ./poly.cpp: Syntax error: Bad function name
+==1710== 
+==1710== HEAP SUMMARY:
+==1710==     in use at exit: 2,441 bytes in 73 blocks
+==1710==   total heap usage: 112 allocs, 39 frees, 220,985 bytes allocated
+==1710== 
+==1710== LEAK SUMMARY:
+==1710==    definitely lost: 0 bytes in 0 blocks
+==1710==    indirectly lost: 0 bytes in 0 blocks
+==1710==      possibly lost: 0 bytes in 0 blocks
+==1710==    still reachable: 2,441 bytes in 73 blocks
+==1710==         suppressed: 0 bytes in 0 blocks
+==1710== Rerun with --leak-check=full to see details of leaked memory
+==1710== 
+==1710== For counts of detected and suppressed errors, rerun with: -v
+==1710== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

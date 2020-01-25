@@ -1,0 +1,397 @@
+==1690== Memcheck, a memory error detector
+==1690== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1690== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==1690== Command: ./bintree.cpp
+==1690== 
+--1690-- Valgrind options:
+--1690--    --leak-check=full
+--1690--    -v
+--1690-- Contents of /proc/version:
+--1690--   Linux version 4.15.0-43-generic (buildd@lgw01-amd64-001) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #46-Ubuntu SMP Thu Dec 6 14:45:28 UTC 2018
+--1690-- 
+--1690-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2
+--1690-- Page sizes: currently 4096, max supported 4096
+--1690-- Valgrind library directory: /usr/lib/valgrind
+--1690-- Reading syms from /bin/dash
+--1690--    object doesn't have a symbol table
+--1690-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--1690--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--1690--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--1690--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--1690--   .. CRC is valid
+--1690-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--1690--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--1690--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--1690--    object doesn't have a symbol table
+--1690--    object doesn't have a dynamic symbol table
+--1690-- Scheduler: using generic scheduler lock implementation.
+--1690-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==1690== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1690-by-charl117-on-???
+==1690== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1690-by-charl117-on-???
+==1690== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1690-by-charl117-on-???
+==1690== 
+==1690== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1690== don't want to do, unless you know exactly what you're doing,
+==1690== or are doing some strange experiment):
+==1690==   /usr/lib/valgrind/../../bin/vgdb --pid=1690 ...command...
+==1690== 
+==1690== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1690==   /path/to/gdb ./bintree.cpp
+==1690== and then give GDB the following command
+==1690==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=1690
+==1690== --pid is optional if only one valgrind process is running
+==1690== 
+--1690-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--1690-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--1690-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--1690--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--1690--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--1690--    object doesn't have a symbol table
+--1690-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--1690--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--1690--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--1690--    object doesn't have a symbol table
+==1690== WARNING: new redirection conflicts with existing -- ignoring it
+--1690--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--1690--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--1690-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--1690-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--1690-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--1690--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--1690--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--1690--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--1690--   .. CRC is valid
+--1690-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4edab20 (libc.so.6:strstr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--1690-- REDIR: 0x4fca3c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--1690-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--1690-- REDIR: 0x4fca1d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--1690-- REDIR: 0x4fca590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--1690-- REDIR: 0x4fcaab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+--1690-- REDIR: 0x4fcaad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--1690-- REDIR: 0x4fa5d60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--1690-- REDIR: 0x4fc6070 (libc.so.6:__strcspn_sse42) redirected to 0x4c378d0 (strcspn)
+--1690-- REDIR: 0x4fc61b0 (libc.so.6:__strpbrk_sse42) redirected to 0x4c37860 (strpbrk)
+--1690-- REDIR: 0x4fc9fa0 (libc.so.6:__strchr_avx2) redirected to 0x4c32950 (index)
+--1690-- REDIR: 0x4ed4c30 (libc.so.6:realloc) redirected to 0x4c31cb0 (realloc)
+./bintree.cpp: 1: ./bintree.cpp: --1697-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+//-------------bintree.cpp----------------------------------------------------: not found
+==1697== 
+==1697== HEAP SUMMARY:
+==1697==     in use at exit: 3,455 bytes in 74 blocks
+==1697==   total heap usage: 78 allocs, 4 frees, 5,007 bytes allocated
+==1697== 
+==1697== Searching for pointers to 74 not-freed blocks
+==1697== Checked 79,928 bytes
+==1697== 
+==1697== LEAK SUMMARY:
+==1697==    definitely lost: 0 bytes in 0 blocks
+==1697==    indirectly lost: 0 bytes in 0 blocks
+==1697==      possibly lost: 0 bytes in 0 blocks
+==1697==    still reachable: 3,455 bytes in 74 blocks
+==1697==         suppressed: 0 bytes in 0 blocks
+==1697== Reachable blocks (those to which a pointer was found) are not shown.
+==1697== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1697== 
+==1697== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1697== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1690-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+./bintree.cpp: 2: ./bintree.cpp: //Quan: not found
+==1698== 
+==1698== HEAP SUMMARY:
+==1698==     in use at exit: 3,455 bytes in 74 blocks
+==1698==   total heap usage: 79 allocs, 5 frees, 5,023 bytes allocated
+==1698== 
+==1698== Searching for pointers to 74 not-freed blocks
+==1698== Checked 79,928 bytes
+==1698== 
+==1698== LEAK SUMMARY:
+==1698==    definitely lost: 0 bytes in 0 blocks
+==1698==    indirectly lost: 0 bytes in 0 blocks
+==1698==      possibly lost: 0 bytes in 0 blocks
+==1698==    still reachable: 3,455 bytes in 74 blocks
+==1698==         suppressed: 0 bytes in 0 blocks
+==1698== Reachable blocks (those to which a pointer was found) are not shown.
+==1698== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1698== 
+==1698== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1698== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 3: ./bintree.cpp: //Created: not found
+==1699== 
+==1699== HEAP SUMMARY:
+==1699==     in use at exit: 3,455 bytes in 74 blocks
+==1699==   total heap usage: 80 allocs, 6 frees, 5,039 bytes allocated
+==1699== 
+==1699== Searching for pointers to 74 not-freed blocks
+==1699== Checked 79,928 bytes
+==1699== 
+==1699== LEAK SUMMARY:
+==1699==    definitely lost: 0 bytes in 0 blocks
+==1699==    indirectly lost: 0 bytes in 0 blocks
+==1699==      possibly lost: 0 bytes in 0 blocks
+==1699==    still reachable: 3,455 bytes in 74 blocks
+==1699==         suppressed: 0 bytes in 0 blocks
+==1699== Reachable blocks (those to which a pointer was found) are not shown.
+==1699== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1699== 
+==1699== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1699== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 4: ./bintree.cpp: //Last: not found
+==1700== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1700-by-charl117-on-???
+==1700== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1700-by-charl117-on-???
+==1700== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1700-by-charl117-on-???
+==1700== 
+==1700== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1700== don't want to do, unless you know exactly what you're doing,
+==1700== or are doing some strange experiment):
+==1700==   /usr/lib/valgrind/../../bin/vgdb --pid=1700 ...command...
+==1700== 
+==1700== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1700==   /path/to/gdb ./bintree.cpp
+==1700== and then give GDB the following command
+==1700==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=1700
+==1700== --pid is optional if only one valgrind process is running
+==1700== 
+==1700== 
+==1700== HEAP SUMMARY:
+==1700==     in use at exit: 3,455 bytes in 74 blocks
+==1700==   total heap usage: 81 allocs, 7 frees, 5,055 bytes allocated
+==1700== 
+==1700== Searching for pointers to 74 not-freed blocks
+==1700== Checked 79,928 bytes
+==1700== 
+==1700== LEAK SUMMARY:
+==1700==    definitely lost: 0 bytes in 0 blocks
+==1700==    indirectly lost: 0 bytes in 0 blocks
+==1700==      possibly lost: 0 bytes in 0 blocks
+==1700==    still reachable: 3,455 bytes in 74 blocks
+==1700==         suppressed: 0 bytes in 0 blocks
+==1700== Reachable blocks (those to which a pointer was found) are not shown.
+==1700== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1700== 
+==1700== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1700== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 5: ./bintree.cpp: //-------------------------------------------------------------------------: not found
+==1701== 
+==1701== HEAP SUMMARY:
+==1701==     in use at exit: 3,455 bytes in 74 blocks
+==1701==   total heap usage: 82 allocs, 8 frees, 5,071 bytes allocated
+==1701== 
+==1701== Searching for pointers to 74 not-freed blocks
+==1701== Checked 79,928 bytes
+==1701== 
+==1701== LEAK SUMMARY:
+==1701==    definitely lost: 0 bytes in 0 blocks
+==1701==    indirectly lost: 0 bytes in 0 blocks
+==1701==      possibly lost: 0 bytes in 0 blocks
+==1701==    still reachable: 3,455 bytes in 74 blocks
+==1701==         suppressed: 0 bytes in 0 blocks
+==1701== Reachable blocks (those to which a pointer was found) are not shown.
+==1701== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1701== 
+==1701== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1701== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 6: ./bintree.cpp: //Purpose:: not found
+==1702== 
+==1702== HEAP SUMMARY:
+==1702==     in use at exit: 3,967 bytes in 75 blocks
+==1702==   total heap usage: 84 allocs, 9 frees, 5,599 bytes allocated
+==1702== 
+==1702== Searching for pointers to 75 not-freed blocks
+==1702== Checked 80,776 bytes
+==1702== 
+==1702== LEAK SUMMARY:
+==1702==    definitely lost: 0 bytes in 0 blocks
+==1702==    indirectly lost: 0 bytes in 0 blocks
+==1702==      possibly lost: 0 bytes in 0 blocks
+==1702==    still reachable: 3,967 bytes in 75 blocks
+==1702==         suppressed: 0 bytes in 0 blocks
+==1702== Reachable blocks (those to which a pointer was found) are not shown.
+==1702== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1702== 
+==1702== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1702== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 7: ./bintree.cpp: //NodeDatas: not found
+==1704== 
+==1704== HEAP SUMMARY:
+==1704==     in use at exit: 3,183 bytes in 74 blocks
+==1704==   total heap usage: 84 allocs, 10 frees, 4,831 bytes allocated
+==1704== 
+==1704== Searching for pointers to 74 not-freed blocks
+==1704== Checked 79,928 bytes
+==1704== 
+==1704== LEAK SUMMARY:
+==1704==    definitely lost: 0 bytes in 0 blocks
+==1704==    indirectly lost: 0 bytes in 0 blocks
+==1704==      possibly lost: 0 bytes in 0 blocks
+==1704==    still reachable: 3,183 bytes in 74 blocks
+==1704==         suppressed: 0 bytes in 0 blocks
+==1704== Reachable blocks (those to which a pointer was found) are not shown.
+==1704== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1704== 
+==1704== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1704== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 8: ./bintree.cpp: //-------------------------------------------------------------------------: not found
+==1705== 
+==1705== HEAP SUMMARY:
+==1705==     in use at exit: 3,455 bytes in 74 blocks
+==1705==   total heap usage: 86 allocs, 12 frees, 5,631 bytes allocated
+==1705== 
+==1705== Searching for pointers to 74 not-freed blocks
+==1705== Checked 79,928 bytes
+==1705== 
+==1705== LEAK SUMMARY:
+==1705==    definitely lost: 0 bytes in 0 blocks
+==1705==    indirectly lost: 0 bytes in 0 blocks
+==1705==      possibly lost: 0 bytes in 0 blocks
+==1705==    still reachable: 3,455 bytes in 74 blocks
+==1705==         suppressed: 0 bytes in 0 blocks
+==1705== Reachable blocks (those to which a pointer was found) are not shown.
+==1705== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1705== 
+==1705== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1705== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 9: ./bintree.cpp: ==1706== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1706-by-charl117-on-???
+==1706== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1706-by-charl117-on-???
+==1706== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1706-by-charl117-on-???
+==1706== 
+==1706== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1706== don't want to do, unless you know exactly what you're doing,
+==1706== or are doing some strange experiment):
+==1706==   /usr/lib/valgrind/../../bin/vgdb --pid=1706 ...command...
+==1706== 
+==1706== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1706==   /path/to/gdb ./bintree.cpp
+==1706== and then give GDB the following command
+==1706==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=1706
+==1706== --pid is optional if only one valgrind process is running
+==1706== 
+//Notes:: not found
+==1706== 
+==1706== HEAP SUMMARY:
+==1706==     in use at exit: 3,967 bytes in 75 blocks
+==1706==   total heap usage: 88 allocs, 13 frees, 6,159 bytes allocated
+==1706== 
+==1706== Searching for pointers to 75 not-freed blocks
+==1706== Checked 80,824 bytes
+==1706== 
+==1706== LEAK SUMMARY:
+==1706==    definitely lost: 0 bytes in 0 blocks
+==1706==    indirectly lost: 0 bytes in 0 blocks
+==1706==      possibly lost: 0 bytes in 0 blocks
+==1706==    still reachable: 3,967 bytes in 75 blocks
+==1706==         suppressed: 0 bytes in 0 blocks
+==1706== Reachable blocks (those to which a pointer was found) are not shown.
+==1706== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1706== 
+==1706== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1706== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 10: ./bintree.cpp: //-------------------------------------------------------------------------: not found
+==1707== 
+==1707== HEAP SUMMARY:
+==1707==     in use at exit: 3,455 bytes in 74 blocks
+==1707==   total heap usage: 89 allocs, 15 frees, 6,175 bytes allocated
+==1707== 
+==1707== Searching for pointers to 74 not-freed blocks
+==1707== Checked 79,928 bytes
+==1707== 
+==1707== LEAK SUMMARY:
+==1707==    definitely lost: 0 bytes in 0 blocks
+==1707==    indirectly lost: 0 bytes in 0 blocks
+==1707==      possibly lost: 0 bytes in 0 blocks
+==1707==    still reachable: 3,455 bytes in 74 blocks
+==1707==         suppressed: 0 bytes in 0 blocks
+==1707== Reachable blocks (those to which a pointer was found) are not shown.
+==1707== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1707== 
+==1707== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1707== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 14: ./bintree.cpp: //----------------------------------BinTree------------------------------------------: not found
+==1708== 
+==1708== HEAP SUMMARY:
+==1708==     in use at exit: 3,455 bytes in 74 blocks
+==1708==   total heap usage: 90 allocs, 16 frees, 6,191 bytes allocated
+==1708== 
+==1708== Searching for pointers to 74 not-freed blocks
+==1708== Checked 79,928 bytes
+==1708== 
+==1708== LEAK SUMMARY:
+==1708==    definitely lost: 0 bytes in 0 blocks
+==1708==    indirectly lost: 0 bytes in 0 blocks
+==1708==      possibly lost: 0 bytes in 0 blocks
+==1708==    still reachable: 3,455 bytes in 74 blocks
+==1708==         suppressed: 0 bytes in 0 blocks
+==1708== Reachable blocks (those to which a pointer was found) are not shown.
+==1708== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1708== 
+==1708== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1708== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1709-- REDIR: 0x4fbbc80 (libc.so.6:__stpcpy_ssse3) redirected to 0x4c35f60 (stpcpy)
+./bintree.cpp: 15: ./bintree.cpp: //: Permission denied
+==1709== 
+==1709== HEAP SUMMARY:
+==1709==     in use at exit: 3,967 bytes in 75 blocks
+==1709==   total heap usage: 92 allocs, 17 frees, 6,719 bytes allocated
+==1709== 
+==1709== Searching for pointers to 75 not-freed blocks
+==1709== Checked 80,840 bytes
+==1709== 
+==1709== LEAK SUMMARY:
+==1709==    definitely lost: 0 bytes in 0 blocks
+==1709==    indirectly lost: 0 bytes in 0 blocks
+==1709==      possibly lost: 0 bytes in 0 blocks
+==1709==    still reachable: 3,967 bytes in 75 blocks
+==1709==         suppressed: 0 bytes in 0 blocks
+==1709== Reachable blocks (those to which a pointer was found) are not shown.
+==1709== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1709== 
+==1709== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1709== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+./bintree.cpp: 16: ./bintree.cpp: Syntax error: Bad function name
+==1690== 
+==1690== HEAP SUMMARY:
+==1690==     in use at exit: 2,439 bytes in 73 blocks
+==1690==   total heap usage: 90 allocs, 17 frees, 5,191 bytes allocated
+==1690== 
+==1690== Searching for pointers to 73 not-freed blocks
+==1690== Checked 79,360 bytes
+==1690== 
+==1690== LEAK SUMMARY:
+==1690==    definitely lost: 0 bytes in 0 blocks
+==1690==    indirectly lost: 0 bytes in 0 blocks
+==1690==      possibly lost: 0 bytes in 0 blocks
+==1690==    still reachable: 2,439 bytes in 73 blocks
+==1690==         suppressed: 0 bytes in 0 blocks
+==1690== Reachable blocks (those to which a pointer was found) are not shown.
+==1690== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1690== 
+==1690== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1690== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

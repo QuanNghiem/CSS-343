@@ -1,0 +1,14 @@
+//This file contains linux command lines for compiling and valgrind checking
+
+//Compiling
+g++ *.cpp
+./a.out //print to console
+./a.out > output.txt 2>&1 //the running process is recorded into the output.txt
+
+//valgrind
+chmod 700 "file-name".cpp //Provide permission
+valgrind ./"file-name".cpp > valgrind.txt 2>&1
+
+//Extra check
+cpplint *.cpp *.h //enable cpplint
+cppcheck --enable=all --inconclusive --language=c++ --std=posix --suppress=missingIncludeSystem *.cpp *.h //enable cppcheck
